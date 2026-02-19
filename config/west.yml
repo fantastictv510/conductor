@@ -2,8 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: pite1222
-      url-base: https://github.com/pite1222
+    - name: Dist16384   # あなたのフォーク
+      url-base: https://github.com/Dist16384
     - name: caksoylar  # <-- new entry
       url-base: https://github.com/caksoylar
   projects:

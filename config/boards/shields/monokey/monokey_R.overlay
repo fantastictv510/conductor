@@ -31,11 +31,6 @@
 
 
 / {
-    aliases {
-        led-red = &led0;
-        led-green = &led2;
-        led-blue = &led1;
-    };
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;

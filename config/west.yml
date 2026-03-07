@@ -6,8 +6,6 @@ manifest:
       url-base: https://github.com/pite1222
     - name: caksoylar
       url-base: https://github.com/caksoylar
-    - name: 4mplelab  # <-- new entry
-      url-base: https://github.com/4mplelab
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,8 +17,5 @@ manifest:
     - name: zmk-rgbled-widget
       remote: pite1222
       revision: critical-steady-light
-    - name: zmk-feature-charge-indicator  # <-- new entry
-      remote: 4mplelab
-      revision: main
   self:
     path: config

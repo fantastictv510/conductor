@@ -17,30 +17,31 @@
             ;
 };
 
-
-
-// 非マウスキーでAML解除
+// Non-mouse key AML release
 &zip_temp_layer {
     excluded-positions = <
         17 // K
         18 // L
     >;
     require-prior-idle-ms = <200>;
-    // トラボ誤爆防止
 };
-
 
 / {
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors = <&zip_xy_scaler 1 1>, <&zip_temp_layer 4 100000>; // Scaler + AML
+    };
 
+    trackball_scroll_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        layers = <5>;
+        input-processors = <&zip_scroll_scaler 1 1>;
     };
 
     chg_stat: chg_stat {
         compatible = "custom,chg-stat";
-        /* Xiao BLE の充電検知ピン P0.17 (Low = 充電中, High = 完了/未接続) */
         gpios = <&gpio0 17 GPIO_ACTIVE_LOW>;
         status = "okay";
     };
@@ -54,7 +55,6 @@
                 <NRF_PSEL(SPIM_MISO, 0, 4)>;
         };
     };
-
     spi0_sleep: spi0_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
@@ -72,10 +72,8 @@
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
-
     trackball: trackball@0 {
-        status = "okay";
-        compatible = "pixart,pmw3610";
+        statu        statu        statu       = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;

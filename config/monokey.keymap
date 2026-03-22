@@ -14,12 +14,31 @@
     combos {
         compatible = "zmk,combos";
 
+        scroll {
+            bindings = <&mo 5>;
+            key-positions = <17 18>;
+        };
+
+        mb3 {
+            bindings = <&mkp MB3>;
+            key-positions = <19 18>;
+        };
+
         manus {
             bindings = <&kp A>;
             key-positions = <8 9>;
             timeout-ms = <51>;
         };
 
+    };
+
+    behaviors {
+        right_click: right_click_behavior {
+            compatible = "zmk,behavior-mouse-key";
+            label = "RIGHT_CLICK";
+            #binding-cells = <0>;
+            bindings = <&mkp MB2>;
+        };
     };
 
     keymap {

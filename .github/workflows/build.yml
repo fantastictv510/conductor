@@ -62,6 +62,23 @@ jobs:
         shell: sh -x {0}
         run: |
           west build \
+            --cmake-only \
+            -s zmk/app \
+            -d build \
+            -b "${{ matrix.board }}" \
+            ${{ matrix.snippet && format('-S "{0}"', matrix.snippet) || '' }} \
+            -- \
+            -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" \
+            ${{ matrix.shield && format('-DSHIELD="{0}"', matrix.shield) || '' }} \
+            -DZMK_EXTRA_MODULES="${ZMK_EXTRA_MODULES}" \
+            ${{ matrix.cmake-args || '' }} || true
+          echo "=== Kconfig.modules (line 285-305) ==="
+          if [ -f "build/Kconfig/Kconfig.modules" ]; then
+            sed -n '285,305p' build/Kconfig/Kconfig.modules
+          else
+            echo "Kconfig.modules not found"
+          fi
+          west build \
             -s zmk/app \
             -d build \
             -b "${{ matrix.board }}" \

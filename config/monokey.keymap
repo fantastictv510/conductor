@@ -33,7 +33,6 @@
 #define JP_EISU         LANGUAGE_2        // 英数
 #define JP_HANZEN       GRAVE             // 半角/全角
 
-
 &mt {
     flavor = "balanced";
     quick-tap-ms = <300>;
@@ -48,11 +47,6 @@
         scroll {
             bindings = <&mo 5>;
             key-positions = <17 18>;
-        };
-
-        lay5 {
-            bindings = <&mo 5>;
-            key-positions = <17 18 19>;
         };
     };
 
@@ -117,6 +111,20 @@
             bindings = <&none &kp LS(A) &kp H &kp N1 &kp N1 &kp N3 &kp N1 &kp N6 &kp N3 &kp JP_PLUS &kp JP_PLUS &kp JP_PLUS &kp JP_PLUS &kp JP_PLUS>;
             label = "PWPPPPP";
         };
+
+        name: name {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp Y &kp O &kp S &kp H &kp I &kp K &kp I &kp UNDER &kp N2 &kp UNDER &kp A &kp K &kp I &kp T &kp A>;
+            label = "NAME";
+        };
+
+        bar: bar {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(A) &kp N9 &kp N4 &kp N0 &kp N8 &kp N8 &kp N7 &kp N6 &kp AT &kp B &kp P &kp R &kp DOT &kp B &kp T &kp M &kp DOT &kp C &kp O &kp DOT &kp J &kp P>;
+            label = "BAR";
+        };
     };
 
     keymap {
@@ -124,10 +132,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W      &kp E         &kp R                   &kp T                                       &kp Y          &kp U  &kp I      &kp O            &kp P
-&kp A             &kp S      &kp D         &kp F                   &kp G                                       &kp H          &kp J  &kp K      &kp L            &lt 7 MINUS
-&mt LEFT_SHIFT Z  &kp X      &kp C         &kp V                   &kp B                                       &kp N          &kp M  &kp COMMA  &kp PERIOD       &mt RIGHT_SHIFT SLASH
-&kp TAB           &kp LCTRL  &kp LEFT_ALT  &mt LEFT_COMMAND LANG2  &lt 3 LANGUAGE_1  &lt 1 SPACE  &lt 2 ENTER  &kp BACKSPACE                    &kp EXCLAMATION  &kp QUESTION
+&kp Q             &kp W      &kp E         &kp R                   &kp T                                       &kp Y          &kp U  &kp I      &kp O                   &kp P
+&kp A             &kp S      &kp D         &kp F                   &kp G                                       &kp H          &kp J  &kp K      &kp L                   &lt 7 MINUS
+&mt LEFT_SHIFT Z  &kp X      &kp C         &kp V                   &kp B                                       &kp N          &kp M  &kp COMMA  &kp PERIOD              &mt RIGHT_SHIFT SLASH
+&kp TAB           &kp LCTRL  &kp LEFT_ALT  &mt LEFT_COMMAND LANG2  &lt 3 LANGUAGE_1  &lt 1 SPACE  &lt 2 ENTER  &kp BACKSPACE                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -135,19 +143,19 @@
 
         FUNCTION {
             bindings = <
-&kp EXCLAMATION       &kp JP_AT           &kp HASH        &kp DOLLAR  &kp PERCENT                 &kp JP_AMPERSAND  &kp JP_QUOTE  &kp JP_ASTERISK      &kp JP_LPAREN  &kp JP_RPAREN
-&kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &kp LS(LG(N5))  &aid        &pid                        &kp JP_PIPE  &kp EQUAL      &kp JP_LBRACKET  &kp JP_RBRACKET     &kp NON_US_BACKSLASH
-&pwp                  &pwpp                 &pwppp          &pwpppp     &pwppppp                    &kp JP_UNDERSCORE     &kp JP_COLON         &kp SEMICOLON     &kp JP_QUOTE      &kp GRAVE
-&kp ESCAPE            &trans                &trans          &trans      &trans       &mo 6  &trans  &trans                                      &trans                &trans
+&kp EXCLAMATION  &kp JP_AT  &kp HASH  &kp DOLLAR  &kp PERCENT                  &kp JP_AMPERSAND   &kp JP_QUOTE  &kp JP_ASTERISK  &kp JP_LPAREN    &kp JP_RPAREN
+&kp LG(LS(S))    &name      &bar      &aid        &pid                         &kp JP_PIPE        &kp EQUAL     &kp JP_LBRACKET  &kp JP_RBRACKET  &kp NON_US_BACKSLASH
+&pwp             &pwpp      &pwppp    &pwpppp     &pwppppp                     &kp JP_UNDERSCORE  &kp JP_COLON  &kp SEMICOLON    &kp JP_QUOTE     &kp GRAVE
+&kp ESCAPE       &trans     &trans    &trans      &mo 6        &trans  &trans  &trans                                            &kp LG(LC(D))    &kp LG(LC(F4))
             >;
         };
 
         NUM {
             bindings = <
-&kp F1   &kp F2   &kp F3   &kp F4   &kp F5                   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL     &kp PERIOD
+&kp F1   &kp F2   &kp F3   &kp F4   &kp F5                   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL        &kp PERIOD
 &kp F6   &kp F7   &kp F8   &kp F9   &kp F10                  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp JP_PLUS      &kp MINUS
 &kp F11  &kp F12  &kp F13  &kp F14  &kp F15                  &kp N7        &kp N8        &kp N9        &kp JP_ASTERISK  &kp SLASH
-&trans   &trans   &trans   &trans   &trans   &trans  &trans  &kp N0                                    &kp LC(Z)     &kp LC(Y)
+&trans   &trans   &trans   &trans   &trans   &trans  &trans  &kp N0                                    &kp LC(Z)        &kp LC(Y)
             >;
         };
 
@@ -164,10 +172,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &mkp MB1  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                    &trans    &trans
             >;
         };
 

@@ -115,14 +115,14 @@
         name: name {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp Y &kp O &kp S &kp H &kp I &kp K &kp I &kp UNDER &kp N2 &kp UNDER &kp A &kp K &kp I &kp T &kp A>;
+            bindings = <&none &kp Y &kp O &kp S &kp H &kp I &kp K &kp I &kp JP_UNDERSCORE &kp N2 &kp JP_UNDERSCORE &kp A &kp K &kp I &kp T &kp A>;
             label = "NAME";
         };
 
         bar: bar {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp LS(A) &kp N9 &kp N4 &kp N0 &kp N8 &kp N8 &kp N7 &kp N6 &kp AT &kp B &kp P &kp R &kp DOT &kp B &kp T &kp M &kp DOT &kp C &kp O &kp DOT &kp J &kp P>;
+            bindings = <&none &kp LS(A) &kp N9 &kp N4 &kp N0 &kp N8 &kp N8 &kp N7 &kp N6 &kp JP_AT &kp B &kp P &kp R &kp DOT &kp B &kp T &kp M &kp DOT &kp C &kp O &kp DOT &kp J &kp P>;
             label = "BAR";
         };
     };

@@ -48,6 +48,11 @@
             bindings = <&mo 5>;
             key-positions = <17 18>;
         };
+
+        pear {
+            bindings = <&bt BT_SEL 4>;
+            key-positions = <0 10 20>;
+        };
     };
 
     behaviors {

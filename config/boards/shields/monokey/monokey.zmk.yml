@@ -1,6 +1,6 @@
 file_format: "1"
 id: monokey
-name: conductor
+name: conductor2
 type: shield
 url: https://github.com/pite1222/zmk-config-monokey
 requires: [xiao_ble]
